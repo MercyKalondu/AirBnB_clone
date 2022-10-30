@@ -1,100 +1,115 @@
-AirBnB clone - The Console
-The objective of this project is to deploy on a server a simple copy of the AirBnB website. The project will not implement all the features. However, it will cover some of them to cover all the basic concepts of the higher level programming
-First step: Write a command interpreter to manage your AirBnB objects.
-This first step is very important because it will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end in
+AirBnB Clone License: MIT Build Status
+HBnB Logo
 
-What’s a command interpreter?
-Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
+Contents
+Description
+Environment
+Further Information
+Requirements
+Repo Contents
+Installation
+Usage
+Built with
+Acknowledgements
+Description 📄
+This is the first phase of a four phase project, to create a basic clone of the AirBnB web app. In this first phase a basic console was created using the Cmd Python module, to manage the objects of the whole project, being able to implement the methods create, show, update, all, and destroy to the existing classes and subclasses.
 
-Create a new object (ex: a new User or a new Place)
-Retrieve an object from a file, a database etc…
-Do operations on objects (count, compute stats, etc…)
-Update attributes of an object
-Destroy an object
-Execution
-Your could work like this in interactive mode:
+Environment 💻
+The console was developed in Ubuntu 14.04LTS using python3 (version 3.4.3).
 
-$ ./console.py
-(hbnb) help
+Further information 📑
+For further information on python version, and documentation visit python.org.
 
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
+Requirements 📝
+Knowledge in python3, how to use a command line interpreter, a computer with Ubuntu 14.04, python3 and pep8 style corrector.
 
-(hbnb) 
-(hbnb) 
+Repo Contents 📋
+This repository constains the following files:
+
+File	Description
+AUTHORS	Contains info about authors of the project
+base_model.py	Defines BaseModel class (parent class), and methods
+user.py	Defines subclass User
+amenity.py	Defines subclass Amenity
+city.py	Defines subclass City
+place.py	Defines subclass Place
+review.py	Defines subclass Review
+state.py	Defines subclass State
+file_storage.py	Creates new instance of class, serializes and deserializes data
+console.py	creates object, retrieves object from file, does operations on objects, updates attributes of object and destroys object
+test_base_model.py	unittests for base_model
+test_user.py	unittests for user
+test_amenity.py	unittests for amenity
+test_city.py	unittests for city
+test_place.py	unittests for place
+test_review.py	unittests for review
+test_state.py	unittests for state
+test_file_storage.py	unittests for file_storage
+test_console.py	unittests for console
+Installation 🛠️
+Clone the repository and run the console.py
+
+$ git clone https://github.com/------/AirBnB_clone.git
+Usage 🔧
+Method	Description
+create	Creates object of given class
+show	Prints the string representation of an instance based on the class name and id
+all	Prints all string representation of all instances based or not on the class name
+update	Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)
+destroy	Deletes an instance based on the class name and id (save the change into the JSON file)
+count	Retrieve the number of instances of a class
+help	Prints information about specific command
+quit/ EOF	Exit the program
+Example No.1
+➜  AirBnB_clone git:(feature) ✗ ./console.py
+(hbnb) create User
+bb4f4b81-7757-460b-9263-743c9ea6fef6
+(hbnb) show User bb4f4b81-7757-460b-9263-743c9ea6fef6
+[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'created_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492106)}
+(hbnb) all User
+["[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'created_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492106)}"]
+(hbnb) update User bb4f4b81-7757-460b-9263-743c9ea6fef6 name Betty
+['User', 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'name', 'Betty']
+(hbnb) all User
+["[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'name': 'Betty', 'created_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492106)}"]
+(hbnb) destroy User bb4f4b81-7757-460b-9263-743c9ea6fef6
+(hbnb) all User
+[]
+(hbnb) show User
+** instance id missing **
+(hbnb)
+
+Example No.2
+➜  AirBnB_clone git:(feature) ✗ ./console.py
+(hbnb) User.create
+*** Unknown syntax: User.create
+(hbnb) User.create()
+e6ee5344-04ef-454d-84e4-ba6fc613f1b4
+(hbnb) User.all()
+["[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {'id': 'e6ee5344-04ef-454d-84e4-ba6fc613f1b4', 'updated_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), 'created_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}"]
+(hbnb) User.show()
+** instance id missing **
+(hbnb) User.show(e6ee5344-04ef-454d-84e4-ba6fc613f1b4)
+[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {'id': 'e6ee5344-04ef-454d-84e4-ba6fc613f1b4', 'updated_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), 'created_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}
+(hbnb) User.update("e6ee5344-04ef-454d-84e4-ba6fc613f1b4", "name", "Betty")
+['User', '"e6ee5344-04ef-454d-84e4-ba6fc613f1b4"', '"name"', '"Betty"']
+(hbnb) User.all()
+['[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {\'"name"\': \'"Betty"\', \'id\': \'e6ee5344-04ef-454d-84e4-ba6fc613f1b4\', \'updated_at\': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), \'created_at\': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}']
+(hbnb) User.destroy(e6ee5344-04ef-454d-84e4-ba6fc613f1b4)
+(hbnb) User.all()
+[]
 (hbnb) quit
-$
-But also in non-interactive mode: (like the Shell project in C)
+➜  AirBnB_clone git:(feature) ✗
 
-$ echo "help" | ./console.py
-(hbnb)
+Built with ⚙️
+python3 (3.4.3)
 
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb) 
-$
-$ cat test_help
-help
-$
-$ cat test_help | ./console.py
-(hbnb)
+Version 📌
+HBnB - version 9.6
 
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb) 
-$
-Commands:
-create - create an object
-show - show an object (based on id)
-destroy - destroy an object
-all - show all objects, of one type or all types
-update - Updates an instance based on the class name and id
-quit/EOF - quit the console
-help - see descriptions of commands
-To start console type in shell
+Acknowledgements 🙌
+To all the peers that contribuited with their knowledge
 
-AirBnB_clone$ ./console.py
-(hbnb) 
-Create
-To create an object use format "create " ex:
-
-(hbnb) create BaseModel
-Show
-To show an instance based on the class name and id. Ex:
-
-(hbnb) show BaseModel 1234-1234-1234.
-Destroy
-To Delete an instance of an object use "destroy id". Ex:
-
-(hbnb) destroy BaseModel 1234-1234-1234.
-All
-all or all Ex:
-
-(hbnb) all or all State
-Update
-Updates an instance based on the class name and id:
-
-(hbnb) update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
-Quit
-quit or EOF
-
-Help
-help or help Ex:
-
-(hbnb) help or help quit
- Defines quit option
-(hbnb) 
-Supported classes:
-BaseModel
-User
-State
-City
-Amenity
-Place
-Review
-Authors
-Mercy Kalondu - mercykalondu@gmail.com
-Gyvira Odima - godima20@gmail.com
+Authors 🖋️
+Luis Chaparro - @luischaparroc
+Laura Peralta V - @LauraPeraltaV85

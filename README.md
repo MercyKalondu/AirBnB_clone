@@ -110,5 +110,5 @@ Acknowledgements 🙌
 To all the peers that contribuited with their knowledge
 
 Authors 🖋️
-Luis Chaparro - @luischaparroc
-Laura Peralta V - @LauraPeraltaV85
+Mercy Kalondu -mercykalondu62@gmail.com
+Gyvira Odima - godima20@gmail.com

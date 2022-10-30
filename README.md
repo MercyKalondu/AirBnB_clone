@@ -129,5 +129,5 @@ HBnB - version 9.6
 To all the peers that contribuited with their knowledge
 
 ### Authors :fountain_pen:
-* Luis Chaparro - @luischaparroc
-* Laura Peralta V - @LauraPeraltaV85
+* Gyvira - godima20@gmail.com
+* Mercy Kalondu - @mercykalondu62@gmail.com
